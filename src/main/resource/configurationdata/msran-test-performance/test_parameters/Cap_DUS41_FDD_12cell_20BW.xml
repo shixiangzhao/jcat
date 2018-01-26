@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans              http://www.springframework.org/schema/beans/spring-beans.xsd              http://www.springframework.org/schema/context              http://www.springframework.org/schema/context/spring-context.xsd">
+  <bean class="com.ericsson.msran.msr.interfaces.SuiteParameters" id="Cap_DUS41_FDD_12cell_20BW">
+    <property name="retainCreatedCv" value="false"/>
+    <property name="cleanupLogsFlag" value="false"/>
+    <property name="moActionSuiteLevel" value="confb+;
+        set PmService=1 maxNoOfCounters 750000;
+        set . noOfPucchCqiUsers 250;
+        set . noOfPucchSrUsers 250;
+        set EUtranCell pdcchCfiMode 5;
+        set Rcs=1 tInactivityTImer 61;
+        set . drxactive true;
+        set EUtranCell tTimeAlignmentTimer 1920"/>
+    <property name="moveCrashDumpsToSeperateDirectory" value="true"/>
+  </bean>
+
+  <bean class="com.ericsson.msran.msr.interfaces.TestParameters" id="CA_2CC_300UE_300UdpDl2CC_12cell_DUS41">
+    <property name="traceMeasurement" value="true"/>
+    <property name="getstatVerifyFlag" value="false"/>
+    <property name="getStatMPloadVerifyFlag" value="true"/>
+    <property name="cellBandwidths" value="cell1:20,cell2:20,
+        cell3:20,cell4:20,
+        cell5:20,cell6:20,
+        cell7:20,cell8:20,
+        cell9:20,cell10:20,
+        cell11:20,cell12:20"/>
+    <property name="bearerThresholdPct" value="0"/>
+    <property name="diversifEyeTestGroup" value="CAP_INCR_JCAT_AF41_5000_SCALED"/>
+    <property name="cellsToBeChecked" value="1,3,5,7,9,11"/>
+    <property name="runPgetCheck" value="false"/>
+    <property name="loadSystemConfigurationId" value="loadSystemConf_300UE_300UdpDl2CC_12cells"/>
+    <property name="autoSetCellRelations" value="true"/>
+    <property name="trafficScenarioString" value="ue::50,app::DL_UDP:bgping,path::rs25.cell1,attachStartDelay::0,staggerTime::100,attachDuration::870,ueCapability::lteUeCa2CCRel10UeCat4B1B4;
+        ue::50,app::DL_UDP:bgping,path::rs25.cell3,attachStartDelay::5,staggerTime::100,attachDuration::875,ueCapability::lteUeCa2CCRel10UeCat4B1B4;
+        ue::50,app::DL_UDP:bgping,path::rs25.cell5,attachStartDelay::10,staggerTime::100,attachDuration::880,ueCapability::lteUeCa2CCRel10UeCat4B1B4;
+        ue::50,app::DL_UDP:bgping,path::rs25.cell7,attachStartDelay::15,staggerTime::100,attachDuration::885,ueCapability::lteUeCa2CCRel10UeCat4B1B4;
+        ue::50,app::DL_UDP:bgping,path::rs25.cell9,attachStartDelay::20,staggerTime::100,attachDuration::890,ueCapability::lteUeCa2CCRel10UeCat4B1B4;
+        ue::50,app::DL_UDP:bgping,path::rs25.cell11,attachStartDelay::25,staggerTime::100,attachDuration::895,ueCapability::lteUeCa2CCRel10UeCat4B1B4;
+        common::dlCat::4, ulCat::4, common::pwrOffset::75"/>
+    <property name="additionalSCList" value="1244:1,1567:1"/>
+    <property name="eRabRetainability" value="0"/>
+    <property name="carrierAggregationParameters" value="50:10:9"/>
+    <property name="caTputValidate" value="TRUE"/>
+    <property name="verdictConfigurationId" value="mr671OTSTP5135Grf"/>
+    <property name="caConfigSpec" value="PCell:cell1, SCell:cell2;
+        PCell:cell3, SCell:cell4;
+        PCell:cell5, SCell:cell6;
+        PCell:cell7, SCell:cell8;
+        PCell:cell9, SCell:cell10;
+        PCell:cell11, SCell:cell12"/>
+    <property name="tInactivityTimer" value="61"/>
+    <property name="restoreCv" value="true"/>
+    <property name="createScannerLocalFlag" value="true"/>
+    <property name="enableAeroflexDebugging" value="true"/>
+    <property name="dumpDcgmLogs" value="onlyOnCrash"/>
+    <property name="numOfTM500Units" value="6"/>
+    <property name="powerCycleAfHL" value="false"/>
+    <property name="ueThresholdPct" value="0"/>
+    <property name="cellDlTputMax" value="cell1:90,cell3:90,cell5:90,cell7:90,cell9:90,cell11:90"/>
+    <property name="pmListAddition" value="pmRrcConnLevSumUlOutOfSync,pmRrcConnLevSum,pmRrcConnLevSamp"/>
+    <property name="testDuration" value="900"/>
+    <property name="enbProfileString" value="cellName::cell1, sectorStartEnd::0-30;
+        cellName::cell2, sectorStartEnd::0-30;
+        cellName::cell3, sectorStartEnd::60-90;
+        cellName::cell4, sectorStartEnd::60-90;
+        cellName::cell5, sectorStartEnd::120-150;
+        cellName::cell6, sectorStartEnd::120-150;
+        cellName::cell7, sectorStartEnd::180-210;
+        cellName::cell8, sectorStartEnd::180-210;
+        cellName::cell9, sectorStartEnd::240-270;
+        cellName::cell10, sectorStartEnd::240-270;
+        cellName::cell11, sectorStartEnd::300-330;
+        cellName::cell12, sectorStartEnd::300-330"/>
+    <property name="waitForNewRop" value="STARTUP"/>
+  </bean>
+
+  <bean class="com.ericsson.msran.msr.interfaces.TestParameters" id="MaxSePerTti_1000Ue_1000cping_12cell_dl12_48_ul12_48_DUS41">
+    <property name="pmListAddition" value="pmSchedActivityCellDl,pmSchedActivityCellUl,pmSchedActivityUeDl,pmSchedActivityUeUl,pmSchedActivityUlTTI"/>
+    <property name="verdictConfigurationId" value="verdictConfigurationDefault"/>
+    <property name="numOfTM500Units" value="6"/>
+    <property name="powerCycleAfHL" value="false"/>
+    <property name="tInactivityTimer" value="61"/>
+    <property name="getstatVerifyFlag" value="false"/>
+    <property name="runPgetCheck" value="false"/>
+    <property name="restoreCv" value="true"/>
+    <property name="loadSystemConfigurationId" value="loadSystemConf_TCMaxSePerTtiTest"/>
+    <property name="validateNrSePerTti" value="true"/>
+    <property name="trafficScenarioString" value="ue::1000,app::cicmp_def,path::rs25.ALL,attachStartDelay::0,staggerTime::500;
+        common::pwrOffset::75"/>
+    <property name="bearerThresholdPct" value="0"/>
+    <property name="enableAeroflexDebugging" value="true"/>
+    <property name="ueThresholdPct" value="99"/>
+    <property name="validateNrSePerTtiPerCell" value="any"/>
+    <property name="diversifEyeTestGroup" value="CAP_INCR_JCAT_AF41_5000_SCALED"/>
+    <property name="createScannerLocalFlag" value="true"/>
+    <property name="dumpDcgmLogs" value="onlyOnCrash"/>
+    <property name="testDuration" value="900"/>
+    <property name="traceMeasurement" value="true"/>
+    <property name="waitForNewRop" value="STARTUP"/>
+  </bean>
+
+  <bean class="com.ericsson.msran.msr.interfaces.TestParameters" id="MaxThrput_DL_12Ue_12DlUdp_12cell_DUS41">
+    <property name="pmListAddition" value="pmRrcConnLevSumUlOutOfSync,pmRrcConnLevSum,pmRrcConnLevSamp"/>
+    <property name="verdictConfigurationId" value="verdictConfigurationDefault"/>
+    <property name="numOfTM500Units" value="6"/>
+    <property name="powerCycleAfHL" value="false"/>
+    <property name="tInactivityTimer" value="61"/>
+    <property name="getstatVerifyFlag" value="false"/>
+    <property name="runPgetCheck" value="false"/>
+    <property name="restoreCv" value="true"/>
+    <property name="loadSystemConfigurationId" value="loadSystemConf_MaxThrput_UDP"/>
+    <property name="trafficScenarioString" value="ue::12,app::DL_UDP:bgping,path::rs25.ALL,attachStartDelay::0,staggerTime::500;
+        common::pwrOffset::75"/>
+    <property name="cellDlTputMax" value="cell1:45,cell2:45,cell3:45,cell4:45,cell5:45,cell6:45,cell7:45,cell8:45,cell9:45,cell10:45,cell11:45,cell12:45"/>
+    <property name="enableAeroflexDebugging" value="true"/>
+    <property name="bearerThresholdPct" value="0"/>
+    <property name="diversifEyeTestGroup" value="CAP_INCR_JCAT_AF41_5000_SCALED"/>
+    <property name="createScannerLocalFlag" value="true"/>
+    <property name="dumpDcgmLogs" value="onlyOnCrash"/>
+    <property name="testDuration" value="900"/>
+    <property name="traceMeasurement" value="true"/>
+    <property name="waitForNewRop" value="STARTUP"/>
+  </bean>
+
+  <bean class="com.ericsson.msran.msr.interfaces.TestParameters" id="MaxUe_4000Ue_4000bgPing_12cell_DUS41">
+    <property name="pmListAddition" value="pmLicConnectedUsersActual,pmLicConnectedUsersDistr,pmLicConnectedUsersLevSamp,pmLicConnectedUsersLevSum,pmLicConnectedUsersLicense,pmLicConnectedUsersMax,pmLicConnectedUsersTimeCong,pmRrcConnLevSumUlOutOfSync,pmRrcConnLevSum,pmRrcConnLevSamp"/>
+    <property name="verdictConfigurationId" value="verdictConfigurationDefault"/>
+    <property name="numOfTM500Units" value="6"/>
+    <property name="powerCycleAfHL" value="false"/>
+    <property name="tInactivityTimer" value="61"/>
+    <property name="getstatVerifyFlag" value="false"/>
+    <property name="runPgetCheck" value="false"/>
+    <property name="restoreCv" value="true"/>
+    <property name="loadSystemConfigurationId" value="loadSystemConf_4000Ue_4000bgPing_12cells"/>
+    <property name="trafficScenarioString" value="ue::500,app::bgping,path::rs25.ALL,attachStartDelay::0,staggerTime::1000;
+        ue::500,app::bgping,path::rs25.ALL,attachStartDelay::4,staggerTime::1000;
+        ue::500,app::bgping,path::rs25.ALL,attachStartDelay::8,staggerTime::1000;
+        ue::500,app::bgping,path::rs25.ALL,attachStartDelay::12,staggerTime::1000;
+        ue::500,app::bgping,path::rs25.ALL,attachStartDelay::16,staggerTime::1000;
+        ue::500,app::bgping,path::rs25.ALL,attachStartDelay::20,staggerTime::1000;
+        ue::500,app::bgping,path::rs25.ALL,attachStartDelay::24,staggerTime::1000;
+        ue::500,app::bgping,path::rs25.ALL,attachStartDelay::28,staggerTime::1000;
+        common::pwrOffset::75"/>
+    <property name="enableAeroflexDebugging" value="true"/>
+    <property name="ueThresholdPct" value="99"/>
+    <property name="bearerThresholdPct" value="0"/>
+    <property name="diversifEyeTestGroup" value="CAP_INCR_JCAT_AF41_5000_SCALED"/>
+    <property name="createScannerLocalFlag" value="true"/>
+    <property name="dumpDcgmLogs" value="onlyOnCrash"/>
+    <property name="testDuration" value="900"/>
+    <property name="traceMeasurement" value="true"/>
+    <property name="waitForNewRop" value="STARTUP"/>
+  </bean>
+
+  <bean class="com.ericsson.msran.msr.interfaces.TestParameters" id="MaxVoLte_1000Ue_1000Voip_12cell_DUS41">
+    <property name="verdictConfigurationId" value="verdictConfigurationDefault"/>
+    <property name="numOfTM500Units" value="6"/>
+    <property name="powerCycleAfHL" value="false"/>
+    <property name="tInactivityTimer" value="10"/>
+    <property name="getstatVerifyFlag" value="false"/>
+    <property name="restoreCv" value="false"/>
+    <property name="loadSystemConfigurationId" value="loadSystemConf_1000Ue_1000Voip_12cells"/>
+    <property name="trafficScenarioString" value="ue::87,app::cvoip,path::rs15.cell1,attachStartDelay::0,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell2,attachStartDelay::7,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell3,attachStartDelay::14,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell4,attachStartDelay::21,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell5,attachStartDelay::28,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell6,attachStartDelay::35,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell7,attachStartDelay::42,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell8,attachStartDelay::49,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell9,attachStartDelay::56,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell10,attachStartDelay::63,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell11,attachStartDelay::70,staggerTime::50;
+        ue::83,app::cvoip,path::rs15.cell12,attachStartDelay::77,staggerTime::200;
+        common::dlCat::11, ulCat::11, ulInterference::-37, pwrOffset::85"/>
+    <property name="enableAeroflexDebugging" value="true"/>
+    <property name="ueThresholdPct" value="99"/>
+    <property name="bearerThresholdPct" value="0"/>
+    <property name="moAction" value="set PmService=1 maxNoOfCounters 400000;
+        pdel USERDEF;
+        pdelp PREDEF;
+        set . pdcchPowerBoostMax 0;
+        set AdmissionControl admNrRbDifferentiationThr 1000;
+        set AdmissionControl admNrRrcDifferentiationThr 1000;
+        set OptionalFeatureLicense=PHICHGroupSpreading featureState 1;
+        set SystemFunctions=1,Licensing=1,OptionalFeatureLicense=PdcchPowerBoost featureState 1;
+        set SystemFunctions=1,Licensing=1,OptionalFeatureLicense=DynamicGBRAdmCtrl featureState 0;
+        set SystemFunctions=1,Licensing=1,OptionalFeatureLicense=DifferentiatedAdmissionControl featureState 0;
+        set SystemFunctions=1,Licensing=1,OptionalFeatureLicense=MobCtrlAtPoorCov featureState 1;
+        set SystemFunctions=1,Licensing=1,OptionalFeatureLicense=MultiTargetRrcConnReest featureState 1;
+        set SystemFunctions=1,Licensing=1,OptionalFeatureLicense=HoOscCtrlUE featureState 0"/>
+    <property name="diversifEyeTestGroup" value="CAP_INCR_JCAT_AF41_5000_SCALED"/>
+    <property name="traceMeasurement" value="true"/>
+    <property name="createScannerLocalFlag" value="true"/>
+    <property name="runPgetCheck" value="false"/>
+    <property name="testDuration" value="1811"/>
+    <property name="enbProfileString" value="common::cellRange::1000, referenceSignalPower::20"/>
+    <property name="waitForNewRop" value="STARTUP"/>
+  </bean>
+
+  <bean class="com.ericsson.msran.msr.interfaces.TestParameters" id="MaxThrput_UL_12Ue_12DlUdp_12cell_DUS41">
+    <property name="pmListAddition" value="pmRrcConnLevSumUlOutOfSync,pmRrcConnLevSum,pmRrcConnLevSamp"/>
+    <property name="runPgetCheck" value="false"/>
+    <property name="verdictConfigurationId" value="verdictConfigurationDefault"/>
+    <property name="cellUlTputMax" value="cell1:20,cell2:20,cell3:20,cell4:20,cell5:20,cell6:20,cell7:20,cell8:20,cell9:20,cell10:20,cell11:20,cell12:20"/>
+    <property name="powerCycleAfHL" value="false"/>
+    <property name="tInactivityTimer" value="61"/>
+    <property name="getstatVerifyFlag" value="false"/>
+    <property name="numOfTM500Units" value="6"/>
+    <property name="restoreCv" value="true"/>
+    <property name="loadSystemConfigurationId" value="loadSystemConf_MaxThrput_UDP"/>
+    <property name="trafficScenarioString" value="ue::12,app::UL_UDP:bgping,path::rs25.ALL,attachStartDelay::0,staggerTime::500;
+        common::pwrOffset::75"/>
+    <property name="enableAeroflexDebugging" value="true"/>
+    <property name="bearerThresholdPct" value="0"/>
+    <property name="diversifEyeTestGroup" value="CAP_INCR_JCAT_AF41_5000_SCALED"/>
+    <property name="createScannerLocalFlag" value="true"/>
+    <property name="dumpDcgmLogs" value="onlyOnCrash"/>
+    <property name="testDuration" value="900"/>
+    <property name="traceMeasurement" value="true"/>
+    <property name="waitForNewRop" value="STARTUP"/>
+  </bean>
+
+  <bean class="com.ericsson.msran.msr.interfaces.TestParameters" id="CA_3CC_90UE_90UdpDl3CC_12cells_DUS41">
+    <property name="traceMeasurement" value="true"/>
+    <property name="getstatVerifyFlag" value="false"/>
+    <property name="getStatMPloadVerifyFlag" value="true"/>
+    <property name="cellBandwidths" value="cell1:20,cell2:20,
+        cell3:20,cell4:20,
+        cell5:20,cell6:20,
+        cell7:20,cell8:20,
+        cell9:20,cell10:20,
+        cell11:20,cell12:20"/>
+    <property name="diversifEyeTestGroup" value="CAP_INCR_JCAT_AF41_5000_SCALED"/>
+    <property name="cellsToBeChecked" value="1,7,8"/>
+    <property name="runPgetCheck" value="false"/>
+    <property name="loadSystemConfigurationId" value="loadSystemConf_90UE_90UdpDl3CC_12cells"/>
+    <property name="autoSetCellRelations" value="true"/>
+    <property name="trafficScenarioString" value="ue::30,app::DL_UDP:bgping,path::rs25.cell1,attachStartDelay::0,staggerTime::1000,ueCapability::lteUeCa2CC3CCRel10UeCat4B1B4;
+        ue::30,app::DL_UDP:bgping,path::rs25.cell7,attachStartDelay::0,staggerTime::1000,ueCapability::lteUeCa2CC3CCRel10UeCat4B1B4;
+        ue::30,app::DL_UDP:bgping,path::rs25.cell8,attachStartDelay::0,staggerTime::1000,ueCapability::lteUeCa2CC3CCRel10UeCat4B1B4;
+        common::dlCat::4, ulCat::4, common::pwrOffset::75"/>
+    <property name="additionalSCList" value="915:14,869:10,746:10,877:10,229:600,1244:1,1041:100,263:80,1042:7,264:5,1567:1"/>
+    <property name="eRabRetainability" value="0"/>
+    <property name="carrierAggregationParameters" value="50:10:9"/>
+    <property name="caTputValidate" value="TRUE"/>
+    <property name="verdictConfigurationId" value="mr671OTSTP5135Grf"/>
+    <property name="caConfigSpec" value="PCell:cell1, SCell:cell2, SCell:cell3;
+        PCell:cell7, SCell:cell6, SCell:cell5;
+        PCell:cell8, SCell:cell9, SCell:cell4"/>
+    <property name="tInactivityTimer" value="61"/>
+    <property name="restoreCv" value="true"/>
+    <property name="createScannerLocalFlag" value="true"/>
+    <property name="ueThresholdPct" value="99"/>
+    <property name="dumpDcgmLogs" value="onlyOnCrash"/>
+    <property name="numOfTM500Units" value="6"/>
+    <property name="powerCycleAfHL" value="false"/>
+    <property name="cellDlTputMax" value="cell1:150,cell7:150,cell8:150"/>
+    <property name="pmListAddition" value="pmRrcConnLevSumUlOutOfSync,pmRrcConnLevSum,pmRrcConnLevSamp"/>
+    <property name="testDuration" value="1020"/>
+    <property name="enbProfileString" value="cellName::cell1, sectorStartEnd::0-60;
+        cellName::cell2, sectorStartEnd::0-60;
+        cellName::cell3, sectorStartEnd::0-60;
+        cellName::cell7, sectorStartEnd::60-120;
+        cellName::cell6, sectorStartEnd::60-120;
+        cellName::cell5, sectorStartEnd::60-120;
+        cellName::cell8, sectorStartEnd::120-180;
+        cellName::cell9, sectorStartEnd::120-180;
+        cellName::cell4, sectorStartEnd::120-180;
+        cellName::cell10, sectorStartEnd::180-240;
+        cellName::cell11, sectorStartEnd::180-240;
+        cellName::cell12, sectorStartEnd::180-240"/>
+    <property name="waitForNewRop" value="STARTUP"/>
+  </bean>
+
+  <bean class="com.ericsson.msran.msr.interfaces.TestParameters" id="MaxThrput_FTP_DUS41">
+    <property name="traceMeasurement" value="false"/>
+    <property name="numOfTM500Units" value="6"/>
+    <property name="powerCycleAfHL" value="true"/>
+    <property name="tInactivityTimer" value="61"/>
+    <property name="getstatVerifyFlag" value="false"/>
+    <property name="restoreCv" value="true"/>
+    <property name="trafficScenarioString" value="ue::12,app::cftp_get,path::rs35.ALL,attachStartDelay::0,staggerTime::500;
+        common::pwrOffset::75"/>
+    <property name="enableAeroflexDebugging" value="true"/>
+    <property name="moAction" value="set PmService=1 maxNoOfCounters 400000"/>
+    <property name="diversifEyeTestGroup" value="CAP_INCR_JCAT_AF41_5000_SCALED"/>
+    <property name="createScannerLocalFlag" value="true"/>
+    <property name="runPgetCheck" value="false"/>
+    <property name="testDuration" value="1200"/>
+    <property name="pmListAddition" value="pmRrcConnLevSumUlOutOfSync,pmRrcConnLevSum,pmRrcConnLevSamp"/>
+    <property name="waitForNewRop" value="STARTUP"/>
+  </bean>
+</beans>
