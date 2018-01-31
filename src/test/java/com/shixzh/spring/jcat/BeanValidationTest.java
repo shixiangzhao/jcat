@@ -21,7 +21,7 @@ public class BeanValidationTest {
 
     public static void validateVerdictConfiguration() {
         List<String> dataPathList = new ArrayList<String>();
-        dataPathList.add("classpath:configurationdata/msran-test-capacity/test_parameters");
+        dataPathList.add("classpath:configurationdata/msran-test-performance/test_parameters");
         validateDir(dataPathList);
     }
 

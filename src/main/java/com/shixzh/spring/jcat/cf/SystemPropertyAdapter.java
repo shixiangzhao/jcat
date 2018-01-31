@@ -16,12 +16,11 @@ import com.shixzh.spring.jcat.spi.ConfigurationFacadeAdapter;
  * -DPREFIX.ID=type=SomeType,stringList=abc,integerList={1,2,3},SubConfigurationDataList={ID1,ID2,
  * ID3}
  * </ul>
- * 
  */
 public class SystemPropertyAdapter implements ConfigurationFacadeAdapter {
-    
+
     private ConfigurationFacadeAdapter aggregationAdapter;
-    
+
     @Override
     public boolean contains(String id) {
         // TODO Auto-generated method stub
@@ -39,7 +38,7 @@ public class SystemPropertyAdapter implements ConfigurationFacadeAdapter {
         // TODO Auto-generated method stub
         return null;
     }
-    
+
     /**
      * The aggregationAdapter used for determining if a dummy configurationData should be created
      * to be part of the aggregated ConfigurationData,

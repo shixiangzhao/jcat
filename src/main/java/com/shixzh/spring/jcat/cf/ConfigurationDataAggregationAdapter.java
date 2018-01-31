@@ -13,9 +13,8 @@ import com.shixzh.spring.jcat.spi.ConfigurationFacadeAdapter;
  */
 final class ConfigurationDataAggregationAdapter implements ConfigurationFacadeAdapter {
 
-    
     ConfigurationDataAggregationAdapter() {}
-    
+
     @Override
     public boolean contains(String id) {
         // TODO Auto-generated method stub

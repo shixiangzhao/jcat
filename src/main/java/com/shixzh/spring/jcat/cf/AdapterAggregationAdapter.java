@@ -11,6 +11,7 @@ import com.shixzh.spring.jcat.spi.ConfigurationFacadeAdapter;
  * to the corresponding method for each underlying adapter.
  */
 class AdapterAggregationAdapter implements ConfigurationFacadeAdapter {
+
     AdapterAggregationAdapter() {
         /* package private */
     }

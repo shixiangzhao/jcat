@@ -1,4 +1,4 @@
-package com.shixzh.spring.jcat.model;
+package com.shixzh.spring.jcat.traffic;
 
 import com.shixzh.spring.jcat.spi.ConfigurationData;
 

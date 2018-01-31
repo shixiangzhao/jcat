@@ -45,6 +45,7 @@ public class AdapterBuilder {
 
     /**
      * build() 可以根据标志位创建对象
+     * 
      * @return
      */
     public ConfigurationFacadeAdapter build() {

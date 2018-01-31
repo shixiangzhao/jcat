@@ -11,7 +11,7 @@ class DecryptionAdapter extends AbstractDecorationAdapter {
 
     private final CryptoProperties crypto;
 
-    DecryptionAdapter(ConfigurationFacadeAdapter adapter, final String keyPath, 
+    DecryptionAdapter(ConfigurationFacadeAdapter adapter, final String keyPath,
             final String propsPath) {
         super(adapter);
         this.crypto = CryptoFactory.newCryptoPropertiesBuilder()

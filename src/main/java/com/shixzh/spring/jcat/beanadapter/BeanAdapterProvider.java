@@ -13,7 +13,7 @@ public class BeanAdapterProvider implements ConfigurationFacadeAdapterProvider {
     private Class<? extends ConfigurationData> modelClass;
 
     public BeanAdapterProvider(List<String> dataPathList) {
-        this.beanConfigLocations.addAll(beanConfigLocations);
+        this.beanConfigLocations.addAll(dataPathList);
     }
 
     @Override
