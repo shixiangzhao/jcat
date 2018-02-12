@@ -5,6 +5,9 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.shixzh.spring.jcat.spi.ConfigurationData;
 import com.shixzh.spring.jcat.spi.ConfigurationFacadeAdapter;
 import com.shixzh.spring.jcat.spi.ConfigurationFacadeAdapterProvider;
@@ -14,6 +17,7 @@ public class AggregationAdapter implements ConfigurationFacadeAdapter {
     private static final String THIS_SHOULD_NOT_HAPPEN_MESSAGE = "This should not happen!";
     final List<ConfigurationFacadeAdapterProvider> providers;
     private final boolean configurationDataAggregationEnabled;
+    private static final Logger logger = LoggerFactory.getLogger(AggregationAdapter.class);
 
     private ConfigurationFacadeAdapter adapterComposite;
 
@@ -25,18 +29,26 @@ public class AggregationAdapter implements ConfigurationFacadeAdapter {
 
     @Override
     public boolean contains(String id) {
-        // TODO Auto-generated method stub
+        if (id == null) {
+            throw new NullPointerException("Argument is null!");
+        }
         return false;
     }
 
     @Override
     public <T extends ConfigurationData> T get(Class<T> c, String id) {
-        // TODO Auto-generated method stub
-        return null;
+        if (c == null) {
+            throw new NullPointerException("Argument 'c' is null!");
+        }
+        if (id == null) {
+            throw new NullPointerException("Argument 'id' is null!");
+        }
+        return getAdapterComposite().get(c, id);
     }
 
     @Override
     public Set<String> getAllIds() {
+        logger.debug("Use default adapter.");
         return getAdapterComposite().getAllIds();
     }
 

@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.beans.factory.parsing.BeanDefinitionParsingException;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.shixzh.spring.jcat.spi.ConfigurationData;
@@ -29,5 +30,17 @@ final class CustomXmlApplicationContext extends ClassPathXmlApplicationContext {
             throw e;
         }
     }
-
+    
+    /**
+     * 该方法用于指定创建bean的工厂，这里指定自定义的CustomDefaultListableBeanFactory
+     * 
+     */
+    @Override
+    protected DefaultListableBeanFactory createBeanFactory() {
+        String packageName = "";
+        if (modelClass != null) {
+            packageName = modelClass.getPackage().getName();
+        }
+        return new CustomDefaultListableBeanFactory(getInternalParentBeanFactory(), packageName);
+    }
 }
